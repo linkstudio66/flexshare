@@ -327,20 +327,13 @@
     }
   </script>
   <script>
-    const EXPIRE_USERS = [
-      'U026ec80e42049561bd41cf92d4c55955',
-      'U5fb67c286549e2eec9ff7f67e9c15690',
-      'Ud2256fed03eacac0ed0d5d679ebdacde',
-      'U0f88770ee60bc3b9ec52f9a95179d191',
-      'Ue86787127a9bb5465c58d3932ed06bbb',
-      'Udd878f6490bbf7e8cf265a5b4941578d'
-    ]
+    const EXPIRE_USERS = []
     var profile, flexlist, flexid = undefined
     var scripturl = 'https://script.google.com/macros/s/AKfycbymv-CcxMc-LSpxqkVNAIoBA7kmR3-FUiUMyKmDzWKIb6gsyxYhhXV_xsHAJvXRY-g/exec'
     var starttime = new Date().getTime()
     async function main() {
       liff.init({
-        liffId: '1655873446-V51vbbQ7', withLoginOnExternalBrowser: true
+        liffId: '2006649278-WZ7qMJ8a', withLoginOnExternalBrowser: true
       });
 
       liff.ready.then(async () => {
@@ -353,20 +346,6 @@
 
         console.log('liff ready')
         if (liff.isLoggedIn()) {
-          if (EXPIRE_USERS.includes(liff.getDecodedIDToken().sub)) {
-            $('section').remove()
-            $('.modal').remove()
-            Swal.fire({
-              icon: 'error',
-              title: 'การทดลองใช้งานหมดอายุ',
-              html: 'กรุณาติดต่อผู้พัฒนาเพื่อใช้งานเวอร์ชั่นเต็ม<br>Line ID: <a href="https://line.me/ti/p/FrAUVjmBeJ" target="_blank">wmhakrook</a><br>หรือ โทร <a href="tel:0904017402">090-401-7402</a><br>ขอบคุณครับ',
-              allowOutsideClick: false,
-              showConfirmButton: true,
-              confirmButtonText: 'ปิดหน้านี้',
-            }).then(() => {
-              liff.closeWindow()
-            })
-          }
           var parameter = new URLSearchParams(window.location.search)
           flexid = parameter.get('s')
           if (flexid) {
